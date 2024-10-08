@@ -24,9 +24,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Force HTTPS in production
-        if ($this->app->environment('production')) {
-            URL::forceScheme('https');
-        }
+        // if ($this->app->environment('production')) {
+        //     URL::forceScheme('https');
+        // }
         //compose all the views....
         view()->composer('*', function ($view) 
         {
