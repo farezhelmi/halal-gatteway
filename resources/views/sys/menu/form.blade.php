@@ -18,7 +18,7 @@
                     <h3 class="card-title">{{$title}}</h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route($route) }}" method="POST" class="form-horizontal">
+                    <form action="{{ secure_url($route) }}" method="POST" class="form-horizontal">
                         @csrf
                         <p>Field with <font color="red">*</font> are required.</p>
                         <input type="hidden" id="id" name="id" value="{{$model->id}}">

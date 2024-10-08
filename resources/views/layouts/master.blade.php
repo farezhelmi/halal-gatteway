@@ -22,13 +22,13 @@ if($settings->logo_path != null) {
 ?>
 
 @if (!Auth::check())
-  <script>window.location = "{{ route('login') }}";</script> 
+  <script>window.location = "{{ secure_url('login') }}";</script> 
 @endif
 
 <!-- First Login ************************************************************************************** -->
 @if(Auth::User()->first_login == null)
   @if(Route::getCurrentRoute()->getName() != 'user/complete-details')
-    <script>window.location = "{{ route('user/complete-details',Auth::id()) }}";</script>
+    <script>window.location = "{{ secure_url('user/complete-details',Auth::id()) }}";</script>
   @endif
 @endif
 <!-- End First Login ********************************************************************************** -->

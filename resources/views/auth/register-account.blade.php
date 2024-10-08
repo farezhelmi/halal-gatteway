@@ -7,26 +7,26 @@
 	 <!-- CSRF Token -->
 	 <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="{{ asset($settings->favicon_path) }}"/>
+	<link rel="icon" type="image/png" href="{{ secure_asset($settings->favicon_path) }}"/>
     <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('Login_v3/vendor/bootstrap/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('Login_v3/vendor/bootstrap/css/bootstrap.min.css') }}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('Login_v3/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('Login_v3/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('Login_v3/fonts/iconic/css/material-design-iconic-font.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('Login_v3/fonts/iconic/css/material-design-iconic-font.min.css') }}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('Login_v3/vendor/animate/animate.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('Login_v3/vendor/animate/animate.css') }}">
 	<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{{ asset('Login_v3/vendor/css-hamburgers/hamburgers.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('Login_v3/vendor/css-hamburgers/hamburgers.min.css') }}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('Login_v3/vendor/animsition/css/animsition.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('Login_v3/vendor/animsition/css/animsition.min.css') }}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('Login_v3/vendor/select2/select2.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('Login_v3/vendor/select2/select2.min.css') }}">
 	<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="{{ asset('Login_v3/vendor/daterangepicker/daterangepicker.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('Login_v3/vendor/daterangepicker/daterangepicker.css') }}">
     <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{{ asset('Login_v3/css/util.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('Login_v3/css/main.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('Login_v3/css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ secure_asset('Login_v3/css/main.css') }}">
     <!--===============================================================================================-->
 
 	<style>
@@ -61,11 +61,11 @@
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url({{ asset('Login_v3/images/bg-02.png') }});">
+		<div class="container-login100" style="background-image: url({{ secure_asset('Login_v3/images/bg-02.png') }});">
 			<div class="wrap-login100">
-				<form action="{{ route('register-store') }}" method="post" class="login100-form validate-form">
+				<form action="{{ secure_url('register-store') }}" method="post" class="login100-form validate-form">
 					<span class="login100-form-title">
-						<img src="{{ asset($settings->logo_login_path) }}" alt="IMG" width="80px">
+						<img src="{{ secure_asset($settings->logo_login_path) }}" alt="IMG" width="80px">
 					</span>
 
 					<br>
@@ -135,7 +135,7 @@
 					<br>
 					<div class="contact100-form-checkbox">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<a class="txt1" href="{{ route('login') }}">Have already an account? Login here.</a>
+						<a class="txt1" href="{{ secure_url('login') }}">Have already an account? Login here.</a>
 					</div>
 				</form>
 			</div>
@@ -143,8 +143,8 @@
 	</div>
 
     <!-- SweetAlert Style -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('sweetalert-1.1.3/css/sweetalert.min.css') }}">
-	<script src="{{ asset('sweetalert-1.1.3/js/sweetalert.min.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ secure_asset('sweetalert-1.1.3/css/sweetalert.min.css') }}">
+	<script src="{{ secure_asset('sweetalert-1.1.3/js/sweetalert.min.js') }}"></script>
     <script>
         function emailChecking(val) {
             var val = val;
@@ -166,21 +166,21 @@
     </script>
 
     <!--===============================================================================================-->
-		<script src="{{ asset('Login_v3/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+		<script src="{{ secure_asset('Login_v3/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 	<!--===============================================================================================-->
-		<script src="{{ asset('Login_v3/vendor/animsition/js/animsition.min.js') }}"></script>
+		<script src="{{ secure_asset('Login_v3/vendor/animsition/js/animsition.min.js') }}"></script>
 	<!--===============================================================================================-->
-		<script src="{{ asset('Login_v3/vendor/bootstrap/js/popper.js') }}"></script>
-		<script src="{{ asset('Login_v3/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+		<script src="{{ secure_asset('Login_v3/vendor/bootstrap/js/popper.js') }}"></script>
+		<script src="{{ secure_asset('Login_v3/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 	<!--===============================================================================================-->
-		<script src="{{ asset('Login_v3/vendor/select2/select2.min.js') }}"></script>
+		<script src="{{ secure_asset('Login_v3/vendor/select2/select2.min.js') }}"></script>
 	<!--===============================================================================================-->
-		<script src="{{ asset('Login_v3/vendor/daterangepicker/moment.min.js') }}"></script>
-		<script src="{{ asset('Login_v3/vendor/daterangepicker/daterangepicker.js') }}"></script>
+		<script src="{{ secure_asset('Login_v3/vendor/daterangepicker/moment.min.js') }}"></script>
+		<script src="{{ secure_asset('Login_v3/vendor/daterangepicker/daterangepicker.js') }}"></script>
 	<!--===============================================================================================-->
-		<script src="{{ asset('Login_v3/vendor/countdowntime/countdowntime.js') }}"></script>
+		<script src="{{ secure_asset('Login_v3/vendor/countdowntime/countdowntime.js') }}"></script>
 	<!--===============================================================================================-->
-		<script src="{{ asset('Login_v3/js/main.js') }}"></script>
+		<script src="{{ secure_asset('Login_v3/js/main.js') }}"></script>
 
 </body>
 </html>

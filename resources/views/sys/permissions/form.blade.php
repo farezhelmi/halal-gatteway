@@ -20,7 +20,7 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route($route) }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                    <form action="{{ secure_url($route) }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">

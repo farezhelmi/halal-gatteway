@@ -7,7 +7,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title"><i class="fa-solid fa-user-pen"></i>&emsp;<b>Complete User Information</b></h4>
                 </div>
-                <form action="{{ route('users/complete-update') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                <form action="{{ secure_url('users/complete-update') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
                     @csrf
                     <div class="modal-body">
                         <div class="row">
