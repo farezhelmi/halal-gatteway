@@ -7,7 +7,7 @@
 	 <!-- CSRF Token -->
 	 <meta name="csrf-token" content="{{ csrf_token() }}">
     <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="{{ secure_asset($settings->favicon_path) }}"/>
+	<link rel="icon" type="image/png" href="{{ asset($settings->favicon_path) }}"/>
     <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ secure_asset('Login_v3/vendor/bootstrap/css/bootstrap.min.css') }}">
 	<!--===============================================================================================-->
@@ -63,7 +63,7 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url({{ secure_asset('Login_v3/images/bg-02.png') }});">
 			<div class="wrap-login100">
-				<form action="{{ route('login') }}" method="post" class="login100-form validate-form">
+				<form action="{{ secure_url('login') }}" method="post" class="login100-form validate-form">
 					<span class="login100-form-title">
 						<img src="{{ secure_asset($settings->logo_login_path) }}" alt="IMG" width="100px">
 					</span>

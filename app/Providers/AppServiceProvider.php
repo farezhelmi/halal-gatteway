@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Usr\Users;
 use App\Models\Sys\RoleUsers;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Force HTTPS in production
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
         //compose all the views....
         view()->composer('*', function ($view) 
         {
