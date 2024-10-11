@@ -52,7 +52,7 @@
                                                     <td><p style="color:{{ $usr->status->color }}"><b>{{ $usr->status->name }}</b></p></td>
                                                     <td>
                                                         <center>
-                                                            <form action="{{ route('users/delete',$usr->id) }}" method="POST">
+                                                            <form action="{{ secure_url('users/delete',$usr->id) }}" method="POST">
                                                                 <a href="{{ route('users/view',$usr->id) }}" >
                                                                     <button type="button" class="btn bg-gradient-info btn-sm" title='View'><i class="fa-solid fa-magnifying-glass"></i></button>
                                                                 </a>

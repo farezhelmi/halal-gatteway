@@ -104,8 +104,8 @@
 					<br>
 					<div class="contact100-form-checkbox">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<a class="txt1" href="{{ route('forgot-password') }}">Forgot password ?</a><br>
-						<a class="txt1" href="{{ route('register-account') }}">Register a new account</a>
+						<a class="txt1" href="{{ secure_url('forgot-password') }}">Forgot password ?</a><br>
+						<a class="txt1" href="{{ secure_url('register-account') }}">Register a new account</a>
 					</div>
 
 					<div class="text p-t-90">

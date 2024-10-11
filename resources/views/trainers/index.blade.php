@@ -52,7 +52,7 @@
                                                     <td>{{ $trainer->phone_no }}</td>
                                                     <td>
                                                         @if ($trainer->certificate)
-                                                            <a href="{{ asset('storage/'.$trainer->certificate) }}" target="_blank" class="btn btn-info btn-sm">View Certificate</a>
+                                                            <a href="{{ secure_asset('storage/'.$trainer->certificate) }}" target="_blank" class="btn btn-info btn-sm">View Certificate</a>
                                                         @else
                                                             No Certificate
                                                         @endif
@@ -60,7 +60,7 @@
                                                     <td><p style="color:{{ $trainer->status->color }}"><b>{{ $trainer->status->name }}</b></p></td>
                                                     <td>
                                                         <center>
-                                                            <form action="{{ route('trainers/delete',$trainer->id) }}" method="POST">
+                                                            <form action="{{ secure_url('trainers/delete',$trainer->id) }}" method="POST">
                                                                 <a href="{{ route('trainers/view',$trainer->id) }}" >
                                                                     <button type="button" class="btn bg-gradient-info btn-sm" title='View'><i class="fa-solid fa-magnifying-glass"></i></button>
                                                                 </a>

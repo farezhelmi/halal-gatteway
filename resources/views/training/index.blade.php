@@ -85,7 +85,7 @@
                                                     <td><p style="color:{{ $training->status->color }}"><b>{{ $training->status->name }}</b></p></td>
                                                     <td>
                                                         <center>
-                                                            <form action="{{ route('trainings/delete',$training->id) }}" method="POST">
+                                                            <form action="{{ secure_url('trainings/delete',$training->id) }}" method="POST">
                                                                 <a href="{{ route('trainings/view',$training->id) }}" >
                                                                     <button type="button" class="btn bg-gradient-info btn-sm" title='View'><i class="fa-solid fa-magnifying-glass"></i></button>
                                                                 </a>

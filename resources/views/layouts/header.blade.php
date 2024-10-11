@@ -114,7 +114,7 @@
                         <a class="btn btn-outline-secondary btn-block" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fa fa-sign-out pull-right"></i> {{ __('LOGOUT') }}
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        <form id="logout-form" action="{{ secure_url('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
                     </div>
