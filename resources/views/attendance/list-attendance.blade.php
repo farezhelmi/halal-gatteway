@@ -20,10 +20,10 @@
                         <div class="card-header">
                             <h3 class="card-title"><i class="fa-solid fa-list"></i>&emsp;<b>Attendance for Training: {{ $training->title }}</b></h3>
                             <div class="card-tools">
-                                <a href="{{ route('certificates.bulk', ['trainingId' => $training->id]) }}" class="btn bg-gradient-primary">
+                                <a href="{{ secure_url('certificates.bulk', ['trainingId' => $training->id]) }}" class="btn bg-gradient-primary">
                                     <i class="fa-solid fa-file"></i> Bulk Certificate
                                 </a>
-                                <a href="{{ route('attendance.printPDF', ['trainingId' => $training->id]) }}" class="btn bg-gradient-danger">
+                                <a href="{{ secure_url('attendance.printPDF', ['trainingId' => $training->id]) }}" class="btn bg-gradient-danger">
                                     <i class="fa-solid fa-file-pdf"></i> Print Attendance
                                 </a>
                             </div>
@@ -59,7 +59,7 @@
                                                     <td>{{ $attendance->gender }}</td>
                                                     <td>{{ $attendance->phone_no }}</td>
                                                     <td>
-                                                        <a href="{{ route('attendance.generateCertificate', ['training_id' => $training->id, 'attendance_id' => $attendance->id]) }}" class="btn btn-primary">
+                                                        <a href="{{ secure_url('attendance.generateCertificate', ['training_id' => $training->id, 'attendance_id' => $attendance->id]) }}" class="btn btn-primary">
                                                             Generate Certificate
                                                         </a>
                                                     </td>
