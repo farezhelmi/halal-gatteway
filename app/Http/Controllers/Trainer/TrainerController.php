@@ -9,6 +9,7 @@ use App\Models\Trainer\Trainer;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Ref\IdentificationTypes;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\AccessController;
 
@@ -44,12 +45,12 @@ class TrainerController extends Controller
         (new AccessController)->permission(); 
         // *********************************************************************
 
-        $request->validate([
-            // 'name' => 'required|string|max:255',
-            // 'email' => 'required|email|unique:trainers,email',
-            // 'gender' => 'required|in:male,female,other',
-            'certificate' => 'nullable|file|mimes:jpeg,png,pdf|max:20480',
-        ]);
+        // $request->validate([
+        //     // 'name' => 'required|string|max:255',
+        //     // 'email' => 'required|email|unique:trainers,email',
+        //     // 'gender' => 'required|in:male,female,other',
+        //     'certificate' => 'nullable|file|mimes:jpeg,png,pdf|max:20480',
+        // ]);
 
         $certificatePath = null;
 
