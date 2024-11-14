@@ -38,6 +38,16 @@ class AttendanceController extends Controller
         ]);
 
         try {
+            // Check if the identification_no is already registered for this training_id
+            $existingAttendance = Attendance::where('training_id', $request->training_id)
+            ->where('identification_no', $request->identification_no)
+            ->first();
+            
+            if ($existingAttendance) {
+                // Redirect back with an error if already registered
+                return back()->withErrors(['identification_no' => 'This identification number is already registered for the selected training.']);
+            }
+
             // Store the attendance record
             $attendance = new Attendance();
             $attendance->training_id = $request->training_id; // Get training_id from request

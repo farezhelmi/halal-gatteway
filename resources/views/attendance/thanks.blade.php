@@ -69,6 +69,9 @@
 				<br>
 				<center><h4 style="color:white"><b>Thank you for your registration</b></h4></center>
 				<br><br>
+				<div class="container-login100-form-btn">
+					<a href="" class="login100-form-btn btn-block">Download File</a>
+				</div>
 				@if(count($errors) > 0)
                     <br>
                     @if($errors->first('success') != '')
