@@ -45,7 +45,7 @@ class AttendanceController extends Controller
             
             if ($existingAttendance) {
                 // Redirect back with an error if already registered
-                return back()->withErrors(['identification_no' => 'This identification number is already registered for the selected training.']);
+                return back()->with('error', 'This identification number is already registered for the selected training.');
             }
 
             // Store the attendance record
