@@ -44,8 +44,8 @@ class AttendanceController extends Controller
             ->first();
             
             if ($existingAttendance) {
-                // Redirect back with an error if already registered
-                return back()->withErrors('error', 'This identification number is already registered for the selected training.');
+                // Redirect back with an error message if the identification number is already registered
+                return redirect()->back()->with('error', 'This identification number is already registered for the selected training.');
             }
 
             // Store the attendance record
@@ -173,5 +173,15 @@ class AttendanceController extends Controller
                   ->setPaper('a4', 'portrait'); // Paper size and orientation
     
         return $pdf->download('Attendance_Report_' . $training->title . '.pdf');
+    }
+
+    public function success()
+    {
+        return redirect()->back()->with('success', 'Attendance registered successfully.');
+    }
+
+    public function error()
+    {
+        return redirect()->back()->with('error', 'This identification number is already registered for the selected training.');
     }
 }
