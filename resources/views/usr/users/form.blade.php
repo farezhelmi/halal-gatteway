@@ -57,7 +57,7 @@
                                         <div class="form-group row ">
                                             <label class="control-label col-md-3">Role <font color="red">*</font></label>
                                             <div class="col-md-9">
-                                                <select id="role_id" name="role_id" class="select2 form-control" required="required" onchange="roleDetails(this.value)">
+                                                <select id="role_id" name="role_id" class="select2 form-control" required="required" >
                                                     <option value="">Please Select</option>
                                                     @foreach ($roles as $key => $role)
                                                         <?php
