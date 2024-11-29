@@ -93,7 +93,6 @@ class UserController extends Controller
                 'name' => $request->profile_name,
                 'identification_type_id' => $request->profile_identification_type_id,
                 'identification_card' => $request->profile_identification_card,
-                'phone_home' => $phone_home,
                 'phone_mobile' => $phone_mobile,
                 'created_at' => NOW(),
                 'created_by' => Auth::id(),

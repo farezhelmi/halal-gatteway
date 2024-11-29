@@ -160,12 +160,12 @@
                                                 <input type="text" id="profile_identification_card" name="profile_identification_card" value="{{ $userProfile->identification_card }}" class="form-control" required="required" onchange="identificationCardChecking(this.value)">
                                             </div>
                                         </div>
-                                        <div class="form-group row ">
+                                        <!-- <div class="form-group row ">
                                             <label class="control-label col-md-3">Home Phone</label>
                                             <div class="col-md-9">
                                                 <input type="number" id="home_mobile" name="home_mobile" value="{{ $userProfile->home_mobile }}" class="form-control">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group row ">
                                             <label class="control-label col-md-3">Mobile Phone</label>
                                             <div class="col-md-9">
