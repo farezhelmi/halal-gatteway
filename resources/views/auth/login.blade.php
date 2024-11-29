@@ -69,7 +69,7 @@
 					</span>
 
 					<br>
-					<center><h2 style="color:white"><b>Halal Gatteway</b></h2></center>
+					<center><h2 style="color:white"><b>CertiHalal</b></h2></center>
 					<br><br>
 
 					@if ($message = Session::get('success'))
