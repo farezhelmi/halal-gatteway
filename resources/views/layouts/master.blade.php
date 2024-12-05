@@ -129,7 +129,7 @@ if($settings->logo_path != null) {
 
       <aside class="main-sidebar sidebar-dark-success elevation-4">
         <a href="{{ route('/') }}" class="brand-link">
-          <img src="{{ $logo_path }}" class="brand-image" style="opacity: .8">
+          <img src="{{ secure_asset($logo_path) }}" class="brand-image" style="opacity: .8">
           <!-- <span class="brand-text font-weight-light">CertiHalal</span> -->
         </a>
 
