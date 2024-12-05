@@ -41,7 +41,7 @@ if($settings->logo_path != null) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="icon" href="{{ secure_asset($favicon_path) }}" type="image/ico" />
+	  <link rel="icon" href="{{ $favicon_path }}" type="image/ico" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -122,14 +122,14 @@ if($settings->logo_path != null) {
     <div class="wrapper">
 
       <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="{{ secure_asset($logo_path) }}" alt="AdminLTELogo" height="60" width="60">
+        <img class="animation__shake" src="{{ $logo_path }}" alt="AdminLTELogo" height="60" width="60">
       </div>
 
       @include('layouts.header', ['path_avatar' => $path_avatar])
 
       <aside class="main-sidebar sidebar-dark-success elevation-4">
         <a href="{{ route('/') }}" class="brand-link">
-          <img src="{{ secure_asset($logo_path) }}" class="brand-image" style="opacity: .8">
+          <img src="{{ $logo_path }}" class="brand-image" style="opacity: .8">
           <!-- <span class="brand-text font-weight-light">CertiHalal</span> -->
         </a>
 

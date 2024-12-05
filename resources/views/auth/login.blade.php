@@ -36,7 +36,7 @@
 			overflow: hidden;
 			padding: 55px 55px 37px 55px;
 			background: #003333;
-			background: -webkit-linear-gradient(top, #003333, #1f7a7a);
+			background: -webkit-linear-gradient(top, #85c2c2, #1f7a7a);
 		}
 
 		.login100-form-btn {
@@ -65,7 +65,7 @@
 			<div class="wrap-login100">
 				<form action="{{ secure_url('login') }}" method="post" class="login100-form validate-form">
 					<span class="login100-form-title">
-						<img src="{{ secure_asset($settings->logo_login_path) }}" alt="IMG" width="100px">
+						<img src="{{ secure_asset($settings->logo_login_path) }}" alt="IMG" width="150px">
 					</span>
 
 					<br>
