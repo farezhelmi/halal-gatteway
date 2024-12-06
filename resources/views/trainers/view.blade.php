@@ -52,7 +52,7 @@
                                         <div class="col-md-3"><b>Certificate</b><span style="float: right;"><b>:</b></span></div>
                                         <div class="col-md-9">
                                             @if ($trainer->certificate)
-                                                <a href="{{ asset('storage/'.$trainer->certificate) }}" target="_blank" class="btn btn-info btn-sm">View Certificate</a>
+                                                <a href="{{ asset($trainer->certificate) }}" target="_blank" class="btn btn-info btn-sm">View Certificate</a>
                                             @else
                                                 No Certificate
                                             @endif

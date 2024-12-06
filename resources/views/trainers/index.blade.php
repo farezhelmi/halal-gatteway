@@ -52,7 +52,7 @@
                                                     <td>{{ $trainer->phone_no }}</td>
                                                     <td>
                                                         @if ($trainer->certificate)
-                                                            <a href="{{ secure_asset('$trainer->certificate) }}" target="_blank" class="btn btn-info btn-sm">View Certificate</a>
+                                                            <a href="{{ secure_asset($trainer->certificate) }}" target="_blank" class="btn btn-info btn-sm">View Certificate</a>
                                                         @else
                                                             No Certificate
                                                         @endif
