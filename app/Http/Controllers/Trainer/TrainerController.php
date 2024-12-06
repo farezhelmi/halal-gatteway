@@ -44,25 +44,32 @@ class TrainerController extends Controller
         // Role-Based Access Control *******************************************
         (new AccessController)->permission(); 
         // *********************************************************************
-
-        // $request->validate([
-        //     // 'name' => 'required|string|max:255',
-        //     // 'email' => 'required|email|unique:trainers,email',
-        //     // 'gender' => 'required|in:male,female,other',
-        //     'certificate' => 'nullable|file|mimes:jpeg,png,pdf|max:20480',
-        // ]);
-
+    
         $certificatePath = null;
-
+    
         if ($request->hasFile('certificate')) {
-            $certificatePath = $request->file('certificate')->store('certificates', 'public');
-        }
-
-        $phone_mobile = $request->phone_mobile;
-            if($phone_mobile != null && substr($request->phone_mobile, 0, 1) != "6") {
-                $phone_mobile = '6'.$request->phone_mobile;
+            // Define the path to save the file in the public folder
+            $destinationPath = public_path('certificates/trainer');
+        
+            // Ensure the directory exists
+            if (!file_exists($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
             }
-
+        
+            // Move the file to the desired location
+            $file = $request->file('certificate');
+            $filename = uniqid() . '_' . $file->getClientOriginalName(); // Ensure a unique filename
+            $file->move($destinationPath, $filename);
+        
+            // Store the relative path in the database
+            $certificatePath = 'certificates/trainer/' . $filename;
+        }
+    
+        $phone_mobile = $request->phone_mobile;
+        if ($phone_mobile != null && substr($request->phone_mobile, 0, 1) != "6") {
+            $phone_mobile = '6' . $request->phone_mobile;
+        }
+    
         $trainer = Trainer::create([
             'name' => $request->name,
             'identification_type_id' => $request->profile_identification_type_id,
@@ -74,17 +81,17 @@ class TrainerController extends Controller
             'status_id' => $request->status_id,
             'created_by' => Auth::id(), // Add the ID of the authenticated user
         ]);
-
+    
         // Log Activity System **************************************************************************************************
         $logActivity = Activities::create([
             'user_id' => Auth::id(),
             'path' => 'trainers/create',
-            'remarks' => 'Create new trainer : '.$trainer->name.' ('.$trainer->id.')',
+            'remarks' => 'Create new trainer : ' . $trainer->name . ' (' . $trainer->id . ')',
             'created_at' => NOW(),
         ]);
         // End Log Activity System **********************************************************************************************
-
-        return Redirect::to($request->url_previous)->with('success','New Trainer Registration Successfully Saved.');
+    
+        return Redirect::to($request->url_previous)->with('success', 'New Trainer Registration Successfully Saved.');
     }
 
     public function emailchecking($id,$val)

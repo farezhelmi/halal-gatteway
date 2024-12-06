@@ -84,10 +84,10 @@ class TrainingController extends Controller
             ]);
 
             // Redirect to the training index or show the QR code
-            return Redirect::to($request->url_previous)->with('success','New Training Registration Successfully Saved.');
+            return redirect()->route('trainings/index')->with('success','New Training Registration Successfully Saved.');
         } catch (\Exception $e) 
         {
-            return Redirect::to($request->url_previous)->with('error',$e->getMessage());
+            return redirect()->route('trainings/index')->with('error',$e->getMessage());
         }
     }
 
