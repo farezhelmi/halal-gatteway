@@ -25,7 +25,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-3"><b>Name</b><span style="float: right;"><b>:</b></span></div>
-                                        <div class="col-md-9">{{ $trainer->name }}</div>
+                                        <div class="col-md-9">{{ $trainingtype->name }}</div>
                                     </div>
                                     <hr>
                                 </div>

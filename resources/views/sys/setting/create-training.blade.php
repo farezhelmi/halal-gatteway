@@ -42,8 +42,8 @@
                                                 <label class="control-label col-md-3">Status <font color="red">*</font></label>
                                                 <div class="col-md-9">
                                                     <select id="status_id" name="status_id" class="select2 form-control">
-                                                        <option value="1" <?php if($training->status_id == "1") { echo 'selected="selected"';} ?>>Active</option>
-                                                        <option value="2" <?php if($training->status_id == "2") { echo 'selected="selected"';} ?>>Not Active</option>
+                                                        <option value="1" <?php if($trainingtype->status_id == "1") { echo 'selected="selected"';} ?>>Active</option>
+                                                        <option value="2" <?php if($trainingtype->status_id == "2") { echo 'selected="selected"';} ?>>Not Active</option>
                                                     </select>
                                                 </div>
                                             </div>
