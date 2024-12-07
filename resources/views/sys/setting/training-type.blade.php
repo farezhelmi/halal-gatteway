@@ -18,7 +18,7 @@
                         <div class="card-header">
                             <h3 class="card-title"><i class="fa-solid fa-list"></i>&emsp;<b>List of Training Type</b></h3>
                             <div class="card-tools">
-                                <a href="{{ route('trainers/create') }}" >
+                                <a href="{{ route('setting/create-training') }}" >
                                     <button type="button" class="btn bg-gradient-success" title="Add New Trainer"><i class="fa fa-plus"></i> <b>Add New Training Type</b></button>
                                 </a>
                             </div>
@@ -32,7 +32,7 @@
                                                 <th width="5%">No.</th>
                                                 <th>Name</th>
                                                 <th width="10%">Status</th>
-                                                <th width="10%">Action</th>
+                                                <th width="15%">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -44,7 +44,7 @@
                                                     <td><p style="color:{{ $trainingType->status->color }}"><b>{{ $trainingType->status->name }}</b></p></td>
                                                     <td>
                                                         <center>
-                                                            <form action="{{ route('setting/delete-training',$trainingType->id) }}" method="POST">
+                                                            <form action="{{ secure_url('setting/delete-training',$trainingType->id) }}" method="POST">
                                                                 <a href="{{ route('setting/view-training',$trainingType->id) }}" >
                                                                     <button type="button" class="btn bg-gradient-info btn-sm" title='View'><i class="fa-solid fa-magnifying-glass"></i></button>
                                                                 </a>

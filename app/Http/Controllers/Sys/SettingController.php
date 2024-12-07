@@ -108,10 +108,10 @@ class SettingController extends Controller
             ]);
 
             // Redirect to the training index or show the QR code
-            return Redirect::to($request->url_previous)->with('success','New Training Type Successfully Saved.');
+            return redirect()->route('setting/training-type')->with('success','New Training Type Successfully Saved.');
         } catch (\Exception $e) 
         {
-            return Redirect::to($request->url_previous)->with('error',$e->getMessage());
+            return redirect()->back()->with('error',$e->getMessage());
         }
     }
 
@@ -163,9 +163,9 @@ class SettingController extends Controller
                 'created_at' => NOW(),
             ]);
 
-            return redirect()->route('trainings/index')->with('success', 'Training session updated successfully.');
+            return redirect()->route('setting/training-type')->with('success', 'Training session updated successfully.');
         } catch (\Exception $e) {
-            return redirect()->route('trainings/index')->with('error', $e->getMessage());
+            return redirect()->back()->with('error', $e->getMessage());
         }
     }
 

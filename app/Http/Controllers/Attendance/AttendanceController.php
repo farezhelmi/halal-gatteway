@@ -53,7 +53,7 @@ class AttendanceController extends Controller
             $attendance->training_id = $request->training_id; // Get training_id from request
             $attendance->trainer_id = $request->trainer_id;   // Get trainer_id from request
             $attendance->name = $request->name;
-            $attendance->army_id = $request->army_id;
+            // $attendance->army_id = $request->army_id;
             $attendance->identification_no = $request->identification_no;
             $attendance->email = $request->email;
             $attendance->gender = $request->gender;

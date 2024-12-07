@@ -51,8 +51,8 @@
     <thead>
         <tr>
             <th>No.</th>
-            <th>Name</th>
-            <th>Army ID</th>
+            <th width="35%">Name</th>
+            <!-- <th>Army ID</th> -->
             <th>Identification No.</th>
             <th>Email</th>
             <th>Gender</th>
@@ -64,7 +64,7 @@
             <tr>
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $attendance->name }}</td>
-                <td>{{ $attendance->army_id }}</td>
+                <!-- <td>{{ $attendance->army_id }}</td> -->
                 <td>{{ $attendance->identification_no }}</td>
                 <td>{{ $attendance->email }}</td>
                 <td>{{ $attendance->gender }}</td>

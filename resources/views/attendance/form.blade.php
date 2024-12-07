@@ -125,12 +125,12 @@
                         </div>
                     </div>
 
-					<div class="form-group row ">
+					<!-- <div class="form-group row ">
                         <label class="control-label col-md-12" style="color: white;">Army ID <font color="red">*</font></label>
                         <div class="col-md-12">
                             <input type="text" id="army_id" name="army_id" required="required" class="form-control" >
                         </div>
-                    </div>
+                    </div> -->
 
 					<div class="form-group row ">
                         <label class="control-label col-md-3" style="color: white;">New I/C Number <font color="red">*</font></label>

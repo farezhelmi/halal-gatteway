@@ -36,7 +36,7 @@
 			overflow: hidden;
 			padding: 55px 55px 37px 55px;
 			background: #003333;
-			background: -webkit-linear-gradient(top, #003333, #1f7a7a);
+			background: -webkit-linear-gradient(top, #85c2c2, #1f7a7a);
 		}
 
 		.login100-form-btn {
@@ -64,7 +64,7 @@
 		<div class="container-login100" style="background-image: url({{ asset('Login_v3/images/bg-02.png') }});">
 			<div class="wrap-login100">
 				<span class="login100-form-title">
-					<img src="{{ asset($settings->logo_login_path) }}" alt="IMG" width="80px">
+					<img src="{{ asset($settings->logo_login_path) }}" alt="IMG" width="150px">
 				</span>
 				<br>
 				<center><h4 style="color:white"><b>Thank you for your registration</b></h4></center>
