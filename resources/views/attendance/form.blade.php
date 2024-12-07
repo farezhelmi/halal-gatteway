@@ -36,7 +36,7 @@
 			overflow: hidden;
 			padding: 55px 55px 37px 55px;
 			background: #003333;
-			background: -webkit-linear-gradient(top, #004d00, #1f7a7a);
+			background: -webkit-linear-gradient(top, #85c2c2, #1f7a7a);
 		}
 
 		.login100-form-btn {
