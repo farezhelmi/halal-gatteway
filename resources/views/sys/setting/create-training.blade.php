@@ -24,8 +24,8 @@
                         @csrf
                             <div class="row">
                                 <div class="col-md-9">
-                                    <?php $trainingtypeID = $trainingtype->id; if($trainingtype->id == null) { $trainingtypeID = 0; } ?>
-                                    <input type="hidden" id="id" name="id" value="{{ $trainingtypeID }}">
+                                    <?php $trainingTypeID = $trainingType->id; if($trainingType->id == null) { $trainingTypeID = 0; } ?>
+                                    <input type="hidden" id="id" name="id" value="{{ $trainingTypeID }}">
                                     <input type="hidden" id="url_previous" name="url_previous" value="{{ url()->previous() }}">
 
                                     <div class="card card-success">
@@ -35,15 +35,15 @@
                                             <div class="form-group row ">
                                                 <label class="control-label col-md-3">Training Name <font color="red">*</font></label>
                                                 <div class="col-md-9">
-                                                    <input type="text" name="name" id="name" class="form-control" value="{{ $trainingtype->name }}" oninput="this.value = this.value.toUpperCase()" required>
+                                                    <input type="text" name="name" id="name" class="form-control" value="{{ $trainingType->name }}" oninput="this.value = this.value.toUpperCase()" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row ">
                                                 <label class="control-label col-md-3">Status <font color="red">*</font></label>
                                                 <div class="col-md-9">
                                                     <select id="status_id" name="status_id" class="select2 form-control">
-                                                        <option value="1" <?php if($trainingtype->status_id == "1") { echo 'selected="selected"';} ?>>Active</option>
-                                                        <option value="2" <?php if($trainingtype->status_id == "2") { echo 'selected="selected"';} ?>>Not Active</option>
+                                                        <option value="1" <?php if($trainingType->status_id == "1") { echo 'selected="selected"';} ?>>Active</option>
+                                                        <option value="2" <?php if($trainingType->status_id == "2") { echo 'selected="selected"';} ?>>Not Active</option>
                                                     </select>
                                                 </div>
                                             </div>
