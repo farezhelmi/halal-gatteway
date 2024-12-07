@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Training\trainingType;
+use App\Models\Training\TrainingType;
 use App\Http\Controllers\AccessController;
 
 class SettingController extends Controller
@@ -71,7 +71,7 @@ class SettingController extends Controller
 
     public function trainingType()
     {
-        $trainingTypes = trainingType::all();
+        $trainingTypes = TrainingType::all();
 
         return view('sys.setting.training-type', compact('trainingTypes'));
     }
@@ -81,7 +81,7 @@ class SettingController extends Controller
         $route = 'setting/store-training';
         $title = 'Create new Training Type'; 
 
-        $trainingType = new trainingType();
+        $trainingType = new TrainingType();
 
         return view('sys.setting.create-training', compact('route', 'title', 'trainingType'));
     }
@@ -94,7 +94,7 @@ class SettingController extends Controller
 
         try {
             // Create a new training record
-            $trainingType = trainingType::create([
+            $trainingType = TrainingType::create([
                 'name' => $request->name,
                 'status_id' => $request->status_id,
             ]);
@@ -117,7 +117,7 @@ class SettingController extends Controller
 
     public function viewTraining($id)
     {
-        $trainingType = trainingType::findOrFail($id);
+        $trainingType = TrainingType::findOrFail($id);
 
         return view('sys.setting.view-training', compact('trainingType'));
     }
@@ -133,7 +133,7 @@ class SettingController extends Controller
         // End Check User Access *******************************************************************************
 
         // Find the training session by ID
-        $trainingType = trainingType::findOrFail($id);
+        $trainingType = TrainingType::findOrFail($id);
 
         $route = 'setting/update-training'; // The route for form submission
         $title = 'Update Training Type'; // Title for the form
@@ -146,7 +146,7 @@ class SettingController extends Controller
        
         try {
             // Find the training by ID
-            $trainingType = trainingType::findOrFail($request->id);
+            $trainingType = TrainingType::findOrFail($request->id);
 
             // Update the training details
             $trainingType->name = $request->name;
@@ -175,7 +175,7 @@ class SettingController extends Controller
         (new AccessController)->permission(); 
         // *********************************************************************
         
-        $trainingType = trainingType::find($id);
+        $trainingType = TrainingType::find($id);
 
         trainingType::find($trainingType->id)->update([
             'name' => 'REMOVE-'.$trainingType->name,
