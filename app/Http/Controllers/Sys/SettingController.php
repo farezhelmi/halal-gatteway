@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Sys;
 use App\Models\Sys\Settings;
 use Illuminate\Http\Request;
 use App\Models\Sys\RoleUsers;
+use App\Models\Log\Activities;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
