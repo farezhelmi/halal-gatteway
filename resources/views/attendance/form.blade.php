@@ -36,7 +36,7 @@
 			overflow: hidden;
 			padding: 55px 55px 37px 55px;
 			background: #003333;
-			background: -webkit-linear-gradient(top, #003333, #1f7a7a);
+			background: -webkit-linear-gradient(top, #004d00, #1f7a7a);
 		}
 
 		.login100-form-btn {
@@ -68,7 +68,7 @@
 					<input type="hidden" name="training_id" value="{{ $training->id }}">
         			<input type="hidden" name="trainer_id" value="{{ $training->trainer_id }}">
 					<span class="login100-form-title">
-						<img src="{{ asset($settings->logo_login_path) }}" alt="IMG" width="80px">
+						<img src="{{ asset($settings->logo_login_path) }}" alt="IMG" width="150px">
 					</span>
 
 					<br>
