@@ -42,7 +42,7 @@
 <body>
 
 <div class="header">
-    <img src="{{ public_path('images/logo/logo.png') }}" alt="Logo"> <!-- Your logo path -->
+    <img src="{{ public_path('images/logo/logo.png') }}" alt="Logo" width="150px"> <!-- Your logo path -->
     <h1>List of Attendance</h1>
     <p>Training Title: {{ $training->title }}</p>
 </div>

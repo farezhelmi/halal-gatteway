@@ -83,7 +83,7 @@ class SettingController extends Controller
 
         $trainingtype = new TrainingType();
 
-        return view('sys.setting.create-training', compact('route', 'title', 'training_type'));
+        return view('sys.setting.create-training', compact('route', 'title', 'trainingtype'));
     }
 
     public function storeTraining(Request $request)

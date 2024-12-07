@@ -54,7 +54,7 @@ Route::get('setting/create-training', [SettingController::class, 'createTraining
 Route::post('setting/store-training', [SettingController::class, 'storeTraining'])->name('setting/store-training');
 Route::get('setting/edit-training/{id}', [SettingController::class, 'editTraining'])->name('setting/edit-training');
 Route::post('setting/update-training', [SettingController::class, 'updateTraining'])->name('setting/update-training');
-Route::get('setting/view-training', [SettingController::class, 'viewTraining'])->name('setting/view-training'); 
+Route::get('setting/view-training/{id}', [SettingController::class, 'viewTraining'])->name('setting/view-training'); 
 Route::post('setting/delete-training/{id}/', [SettingController::class, 'deleteTraining'])->name('setting/delete-training');
 
 Route::get('error/log/{id}', [ErrorController::class, 'log'])->name('error/log');
