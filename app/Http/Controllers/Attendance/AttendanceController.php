@@ -96,12 +96,13 @@ class AttendanceController extends Controller
         $data = [
             'name' => $attendance->name,
             'trainingTitle' => $training->title,
-            'date' => $training->training_date->format('F j, Y')
+            'date' => $training->training_date->format('j F, Y')
         ];
 
         // Generate the PDF
         $pdf = PDF::loadView('pdf.certificate', compact('data', 'imgPath'))
-                ->setPaper([0, 0, 1061, 1500], 'landscape');
+                ->setPaper('a4', 'portrait');
+                // ->setPaper([0, 0, 1061, 1500], 'landscape');
                 // ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
                 // ->setWarnings(false);
 
@@ -109,6 +110,9 @@ class AttendanceController extends Controller
         // $pdf->getDomPDF()->set_option('defaultMediaType', 'print');
         // $pdf->getDomPDF()->set_option('isHtml5ParserEnabled', true);
         // $pdf->getDomPDF()->getCanvas()->set_opacity(1);
+        $pdf->getDomPDF()->set_option('isHtml5ParserEnabled', true);
+        $pdf->getDomPDF()->set_option('isRemoteEnabled', true);
+        $pdf->getDomPDF()->set_option('defaultMediaType', 'print');
 
         return $pdf->download('Certificate-' . $attendance->name . '.pdf');
     }
@@ -139,13 +143,18 @@ class AttendanceController extends Controller
             $data = [
                 'name' => $attendance->name,
                 'trainingTitle' => $training->title,
-                'date' => $training->training_date->format('F j, Y')
+                'date' => $training->training_date->format('j F, Y')
             ];
 
             // Generate the PDF
             $pdf = PDF::loadView('pdf.certificate', compact('data', 'imgPath'))
-                ->setPaper([0, 0, 1061, 1500], 'landscape');
-                // ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+                ->setPaper('a4', 'portrait');
+                // ->setPaper([0, 0, 1061, 1500], 'landscape');
+                // ->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true, 'defaultMediaType' => 'print'])
+            
+            // $pdf->getDomPDF()->set_option('isHtml5ParserEnabled', true);
+            // $pdf->getDomPDF()->set_option('isRemoteEnabled', true);
+            // $pdf->getDomPDF()->set_option('defaultMediaType', 'print');
 
             // Save the PDF to the temp directory
             $pdfFileName = 'Certificate_' . $attendance->name . '.pdf';

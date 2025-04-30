@@ -3,67 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate</title>
+    <title>Sijil Penyertaan</title>
     <style>
         @page {
-        margin: 0px; /* Remove all page margins */
+            margin: 0px; /* Remove all page margins */
         }
 
         body {
             background-image: url({{ $imgPath }});
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: center top;
+            background-position: center;
             height: 100%;
             width: 100%;
             margin: 0;
             padding: 0;
             position: relative;
-            font-family: Arial, sans-serif;
+            font-family: 'Times New Roman', serif; /* More formal font for certificates */
         }
 
         .content {
-        position: relative;
-        align-items: center;
-        justify-content: center; 
-        /* No need to center the entire content */
+            position: relative;
+            width: 100%;
+            height: 100%;
         }
 
-        .name {
+        .participant-name {
             position: absolute;
-            top: 37%; /* Adjust this value based on your template */
-            left: 50%; /* Adjust this value based on your template */
+            top: 48%; /* Adjusted for position after "Dengan ini disahkan bahawa" */
+            left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 60px; /* Change size as necessary */
+            font-size: 28px;
             font-weight: bold;
-            color: #333;
+            color: #000;
+            text-align: center;
+            width: 80%;
         }
 
-        .trainingTitle {
+        .training-title {
             position: absolute;
-            top: 48%; /* Adjust this value for training title */
-            left: 50%; /* Adjust this value for training title */
+            top: 56%; /* Adjusted for position after "Dengan ini disahkan bahawa" */
+            left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 38px; /* Change size as necessary */
-            color: #666;
+            font-size: 25px;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            width: 80%;
         }
 
-        .date {
+        .training-date {
             position: absolute;
-            top: 61%; /* Adjust this value for date */
-            left: 50%; /* Adjust this value for date */
+            top: 62%; /* Adjusted for position after "Pada" */
+            left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 36px; /* Change size as necessary */
-            color: #666;
+            font-size: 22px;
+            color: #000;
+            text-align: center;
+            width: 80%;
+        }
+
+        .venue {
+            position: absolute;
+            top: 70%; /* Adjusted for position after "Bertempat di" */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 22px;
+            color: #000;
+            text-align: center;
+            width: 80%;
+        }
+
+        .certificate-id {
+            position: absolute;
+            bottom: 15%;
+            left: 15%;
+            font-size: 14px;
+            color: #000;
         }
     </style>
 </head>
 <body>
     <div class="content">
-        <!-- <div class="name">{{ $data['name'] }}</div> -->
-        <div class="name">{{ $data['name'] }}</div>
-        <div class="trainingTitle"><b>{{ $data['trainingTitle'] }}<b></div>
-        <div class="date">{{ $data['date'] }}</div>
+        <div class="participant-name">{{ $data['name'] }}</div>
+        <div class="training-title">{{ $data['trainingTitle'] }}</div>
+        <div class="training-date">{{ $data['date'] }}</div>
+        
     </div>
 </body>
 </html>

@@ -23,9 +23,9 @@ class TrainingController extends Controller
     public function index()
     {
         $trainings = Training::with('trainer')
-        ->where([
-            ['status_id', '!=', 0]
-        ])->get();
+            ->where('status_id', '!=', 0)
+            ->orderBy('created_at', 'desc') // 👈 Get latest first
+            ->get();
 
         return view('training.index', compact('trainings'));
     }
