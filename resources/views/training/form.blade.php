@@ -52,6 +52,12 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row ">
+                                                <label class="control-label col-md-3">Venue <font color="red">*</font></label>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="venue" id="venue" class="form-control" value="{{ $training->venue }}" oninput="this.value = this.value.toUpperCase()" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row ">
                                                 <label class="control-label col-md-3">Training Date <font color="red">*</font></label>
                                                 <div class="col-md-9">
                                                     <input type="date" name="training_date" id="training_date" class="form-control" value="{{ $training->training_date }}" required>

@@ -65,7 +65,7 @@
 
         .venue {
             position: absolute;
-            top: 70%; /* Adjusted for position after "Bertempat di" */
+            top: 68%; /* Adjusted for position after "Bertempat di" */
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 22px;
@@ -88,6 +88,7 @@
         <div class="participant-name">{{ $data['name'] }}</div>
         <div class="training-title">{{ $data['trainingTitle'] }}</div>
         <div class="training-date">{{ $data['date'] }}</div>
+        <div class="venue">{{ $data['venue'] }}</div>
         
     </div>
 </body>

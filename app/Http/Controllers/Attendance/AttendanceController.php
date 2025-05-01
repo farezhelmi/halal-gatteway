@@ -96,7 +96,8 @@ class AttendanceController extends Controller
         $data = [
             'name' => $attendance->name,
             'trainingTitle' => $training->title,
-            'date' => $training->training_date->format('j F, Y')
+            'date' => $training->training_date->format('j F, Y'),
+            'venue' => $training->venue
         ];
 
         // Generate the PDF
@@ -143,7 +144,8 @@ class AttendanceController extends Controller
             $data = [
                 'name' => $attendance->name,
                 'trainingTitle' => $training->title,
-                'date' => $training->training_date->format('j F, Y')
+                'date' => $training->training_date->format('j F, Y'),
+                'venue' => $training->venue
             ];
 
             // Generate the PDF

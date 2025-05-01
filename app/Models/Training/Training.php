@@ -44,4 +44,14 @@ class Training extends Model
     public function training() {
         return $this->belongsTo(TrainingType::class, 'training_type_id', 'id');
     }
+
+    public function getTitleAttribute($value)
+    {
+        return ucwords(strtolower($value));
+    }
+
+    public function getVenueAttribute($value)
+    {
+        return ucwords(strtolower($value));
+    }
 }

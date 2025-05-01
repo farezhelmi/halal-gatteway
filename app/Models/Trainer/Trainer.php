@@ -35,4 +35,9 @@ class Trainer extends Model
     public function status() {
         return $this->belongsTo(Status::class, 'status_id', 'id');
     }
+
+    public function getNameAttribute($value)
+    {
+        return ucwords(strtolower($value));
+    }
 }

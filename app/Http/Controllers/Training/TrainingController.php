@@ -66,6 +66,7 @@ class TrainingController extends Controller
             $training = Training::create([
                 'trainer_id' => $request->trainer_id,
                 'title' => $request->title,
+                'venue' => $request->venue,
                 'training_date' => $request->training_date,
                 'training_type_id' => $request->training_type_id,
                 'created_by' => Auth::id(),
@@ -135,6 +136,7 @@ class TrainingController extends Controller
             // Update the training details
             $training->trainer_id = $request->trainer_id;
             $training->title = $request->title;
+            $training->venue = $request->venue;
             $training->training_date = $request->training_date;
             $training->training_type_id = $request->training_type_id; 
             $training->status_id = $request->status_id;
