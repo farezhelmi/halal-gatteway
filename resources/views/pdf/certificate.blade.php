@@ -78,7 +78,7 @@
 
         .venue {
             position: absolute;
-            top: 72%; /* Adjusted for position after "Bertempat di" */
+            top: 73%; /* Adjusted for position after "Bertempat di" */
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 22px;
