@@ -91,6 +91,12 @@ class AttendanceController extends Controller
 
         Carbon::setLocale('ms');
 
+        // Update is_download to 1
+        if ($attendance->is_download == 0) {
+            $attendance->is_download = 1;
+            $attendance->save();
+        }
+
         // Load the certificate template (make sure to store it in public/certificates)
         $imgPath = public_path('certificates/template.png');
 
@@ -201,6 +207,11 @@ class AttendanceController extends Controller
 
             // Add the PDF file to the zip archive
             $zip->addFile($pdfFilePath, $pdfFileName);
+
+            if ($attendance->is_download == 0) {
+                $attendance->is_download = 1;
+                $attendance->save();
+            }
         }
 
         // Close the zip file

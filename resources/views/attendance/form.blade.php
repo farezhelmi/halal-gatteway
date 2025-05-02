@@ -109,7 +109,7 @@
 
 					<div class="form-group row ">
                         <label class="control-label col-md-12" style="color: white;">Trainer Name </label>
-                        <div class="col-md-12"><b>{{ $training->training_id }}</b></div>
+                        <div class="col-md-12"><b>{{ $training->trainer_id }}</b></div>
 
                     </div>
 
