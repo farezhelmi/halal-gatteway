@@ -54,7 +54,7 @@
 
         .training-type {
             position: absolute;
-            top: 57%; /* Adjusted for position after "Dengan ini disahkan bahawa" */
+            top: 58%; /* Adjusted for position after "Dengan ini disahkan bahawa" */
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 25px;
