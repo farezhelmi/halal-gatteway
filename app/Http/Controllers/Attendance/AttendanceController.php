@@ -39,7 +39,7 @@ class AttendanceController extends Controller
         ]);
 
         try {
-            // Check if the identification_no is already registered for this training_id
+
             $existingAttendance = Attendance::where('training_id', $request->training_id)
             ->where('identification_no', $request->identification_no)
             ->first();
@@ -49,16 +49,34 @@ class AttendanceController extends Controller
                 return redirect()->back()->with('error', 'This identification number is already registered for the selected training.');
             }
 
+            // Generate new cert_no
+            $year = now()->year;
+            $prefix = 'GGS' . $year;
+
+            $lastCert = Attendance::where('cert_no', 'LIKE', "$prefix-%")
+                ->orderBy('cert_no', 'desc')
+                ->first();
+
+            if ($lastCert && preg_match('/\d+$/', $lastCert->cert_no, $matches)) {
+                $lastNumber = intval($matches[0]);
+                $newNumber = $lastNumber + 1;
+            } else {
+                $newNumber = 1;
+            }
+
+            $newCertNo = $prefix . '-' . str_pad($newNumber, 4, '0', STR_PAD_LEFT);
+
             // Store the attendance record
             $attendance = new Attendance();
             $attendance->training_id = $request->training_id; // Get training_id from request
             $attendance->trainer_id = $request->trainer_id;   // Get trainer_id from request
             $attendance->name = $request->name;
-            // $attendance->army_id = $request->army_id;
+            $attendance->army_id = $request->army_id;
             $attendance->identification_no = $request->identification_no;
             $attendance->email = $request->email;
             $attendance->gender = $request->gender;
             $attendance->phone_no = $request->phone_no;
+            $attendance->cert_no = $newCertNo; 
 
             // Save the attendance
             $attendance->save();
