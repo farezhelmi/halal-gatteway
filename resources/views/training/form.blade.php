@@ -32,13 +32,16 @@
                                         <div class="card-body">
                                             <p>Fields marked <font color="red">*</font> are Mandatory.</p>
                                             <hr>
+                                            @php
+                                                $selectedTrainers = explode(',', $training->trainer_id ?? '');
+                                            @endphp
                                             <div class="form-group row ">
                                                 <label class="control-label col-md-3">Select Trainer <font color="red">*</font></label>
                                                 <div class="col-md-9">
-                                                    <select name="trainer_id" class="form-control" required>
-                                                        <option value="" > - Please Select - </option>
+                                                    <select id="trainer_id" name="trainer_id[]" class="select2 form-control" multiple="multiple" required>
+                                                        <!-- <option value="">{{ __('messages.please_select') }}</option> -->
                                                         @foreach($trainers as $trainer)
-                                                            <option value="{{ $trainer->id }}" {{ $trainer->id == $training->trainer_id ? 'selected' : '' }}>
+                                                            <option value="{{ $trainer->name }}" {{ in_array($trainer->name, $selectedTrainers ?? []) ? 'selected' : '' }}>
                                                                 {{ $trainer->name }}
                                                             </option>
                                                         @endforeach
@@ -58,9 +61,15 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row ">
-                                                <label class="control-label col-md-3">Training Date <font color="red">*</font></label>
+                                                <label class="control-label col-md-3">Training Start Date <font color="red">*</font></label>
                                                 <div class="col-md-9">
                                                     <input type="date" name="training_date" id="training_date" class="form-control" value="{{ $training->training_date }}" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row ">
+                                                <label class="control-label col-md-3">Training End Date </label>
+                                                <div class="col-md-9">
+                                                    <input type="date" name="end_date" id="end_date" class="form-control" value="{{ $training->end_date }}" >
                                                 </div>
                                             </div>
                                             <div class="form-group row ">

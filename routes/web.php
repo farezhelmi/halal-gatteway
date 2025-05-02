@@ -120,7 +120,7 @@ Route::get('trainings/edit/{id}', [TrainingController::class, 'edit'])->name('tr
 Route::post('trainings/update', [TrainingController::class, 'update'])->name('trainings/update');
 Route::post('trainings/delete/{id}', [TrainingController::class, 'delete'])->name('trainings/delete'); 
 
-Route::get('attendance/form/{training_id}/{trainer_id}', [AttendanceController::class, 'form'])->name('attendance/form');
+Route::get('attendance/form/{training_id}', [AttendanceController::class, 'form'])->name('attendance/form');
 Route::get('attendance/registered', [AttendanceController::class, 'thanks'])->name('attendance/registered');
 Route::post('attendance/store', [AttendanceController::class, 'store'])->name('attendance/store'); 
 Route::get('attendance/list-attendance/{id}', [AttendanceController::class, 'listAttendance'])->name('attendance/list-attendance');

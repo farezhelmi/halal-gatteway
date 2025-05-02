@@ -19,7 +19,9 @@ class Attendance extends Model
         'identification_no', 
         'email', 
         'gender', 
-        'phone_no'
+        'phone_no',
+        'cert_no',
+        'is_download',
     ];
 
     public function training()

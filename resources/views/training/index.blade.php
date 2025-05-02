@@ -46,7 +46,7 @@
                                             @foreach ($trainings as $training)
                                                 <tr>
                                                     <td><center>{{ $i++ }}</center></td>
-                                                    <td>{{ $training->trainer->name }}</td>
+                                                    <td>{{ $training->trainer_id }}</td>
                                                     <td>{{ $training->title }}</td>
                                                     <td>{{ $training->training_date }}</td>
                                                     <td>{{ $training->training->name }}</td>
@@ -68,7 +68,7 @@
                                                                     </div>
                                                                     <div class="modal-body text-center">
                                                                         <!-- Display the QR code -->
-                                                                        <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(200)->generate(route('attendance/form', ['training_id' => $training->id, 'trainer_id' => $training->trainer_id]))) }}" alt="QR Code">
+                                                                        <img src="data:image/png;base64,{{ base64_encode(QrCode::format('png')->size(200)->generate(route('attendance/form', ['training_id' => $training->id]))) }}" alt="QR Code">
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <!-- Button to print the QR code -->

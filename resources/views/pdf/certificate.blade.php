@@ -30,7 +30,7 @@
 
         .participant-name {
             position: absolute;
-            top: 48%; /* Adjusted for position after "Dengan ini disahkan bahawa" */
+            top: 45%; /* Adjusted for position after "Dengan ini disahkan bahawa" */
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 28px;
@@ -42,7 +42,19 @@
 
         .training-title {
             position: absolute;
-            top: 56%; /* Adjusted for position after "Dengan ini disahkan bahawa" */
+            top: 55%; /* Adjusted for position after "Dengan ini disahkan bahawa" */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25px;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            width: 80%;
+        }
+
+        .training-type {
+            position: absolute;
+            top: 57%; /* Adjusted for position after "Dengan ini disahkan bahawa" */
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 25px;
@@ -54,10 +66,11 @@
 
         .training-date {
             position: absolute;
-            top: 62%; /* Adjusted for position after "Pada" */
+            top: 65%; /* Adjusted for position after "Pada" */
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 22px;
+            font-weight: bold;
             color: #000;
             text-align: center;
             width: 80%;
@@ -65,10 +78,11 @@
 
         .venue {
             position: absolute;
-            top: 68%; /* Adjusted for position after "Bertempat di" */
+            top: 72%; /* Adjusted for position after "Bertempat di" */
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 22px;
+            font-weight: bold;
             color: #000;
             text-align: center;
             width: 80%;
@@ -81,14 +95,26 @@
             font-size: 14px;
             color: #000;
         }
+
+        .running-number {
+            position: absolute;
+            font-family: Arial, Helvetica, sans-serif;
+            bottom: 1.5%; /* Position at the bottom similar to where RSMIHA-2024-040 appears */
+            right: 25%; /* Position from right side */
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
     </style>
 </head>
 <body>
     <div class="content">
-        <div class="participant-name">{{ $data['name'] }}</div>
+    <div class="participant-name">{{ $data['name'] }}</div>
         <div class="training-title">{{ $data['trainingTitle'] }}</div>
-        <div class="training-date">{{ $data['date'] }}</div>
+        <div class="training-type">{{ $data['training_type'] }}</div>
+        <div class="training-date">{{ $data['date_range'] }}</div>
         <div class="venue">{{ $data['venue'] }}</div>
+        <div class="running-number">{{ $data['cert_no'] }}</div>
         
     </div>
 </body>

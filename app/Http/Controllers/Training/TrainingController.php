@@ -22,8 +22,7 @@ class TrainingController extends Controller
 
     public function index()
     {
-        $trainings = Training::with('trainer')
-            ->where('status_id', '!=', 0)
+        $trainings = Training::where('status_id', '!=', 0)
             ->orderBy('created_at', 'desc') // 👈 Get latest first
             ->get();
 
@@ -62,12 +61,18 @@ class TrainingController extends Controller
         // ]);
 
         try {
+
+            $trainerName = is_array($request->trainer_id)
+                ? implode(',', $request->trainer_id)
+                : $request->trainer_id;
+
             // Create a new training record
             $training = Training::create([
-                'trainer_id' => $request->trainer_id,
+                'trainer_id' => $trainerName,
                 'title' => $request->title,
                 'venue' => $request->venue,
                 'training_date' => $request->training_date,
+                'end_date' => $request->end_date,
                 'training_type_id' => $request->training_type_id,
                 'created_by' => Auth::id(),
             ]);
@@ -130,14 +135,20 @@ class TrainingController extends Controller
         // ]);
 
         try {
+
+            $trainerName = is_array($request->trainer_id)
+                ? implode(',', $request->trainer_id)
+                : $request->trainer_id;
+
             // Find the training by ID
             $training = Training::findOrFail($request->id);
 
             // Update the training details
-            $training->trainer_id = $request->trainer_id;
+            $training->trainer_id = $trainerName;
             $training->title = $request->title;
             $training->venue = $request->venue;
             $training->training_date = $request->training_date;
+            $training->end_date = $request->end_date;
             $training->training_type_id = $request->training_type_id; 
             $training->status_id = $request->status_id;
             $training->updated_by = Auth::id(); // Update the user who made the change

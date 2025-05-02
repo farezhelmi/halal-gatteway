@@ -16,6 +16,7 @@ class Training extends Model
     protected $fillable = [
         'trainer_id',
         'title',
+        'venue',
         'training_date',
         'training_type_id',
         'status_id',
@@ -27,10 +28,10 @@ class Training extends Model
         'training_date' => 'datetime',
     ];
 
-    public function trainer()
-    {
-        return $this->belongsTo(Trainer::class);
-    }
+    // public function trainer()
+    // {
+    //     return $this->belongsTo(Trainer::class);
+    // }
 
     public function attendances()
     {

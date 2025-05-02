@@ -66,7 +66,7 @@
 				<form action="{{ secure_url('attendance/store') }}" method="post" class="login100-form validate-form">
 					@csrf
 					<input type="hidden" name="training_id" value="{{ $training->id }}">
-        			<input type="hidden" name="trainer_id" value="{{ $training->trainer_id }}">
+        			<!-- <input type="hidden" name="trainer_id" value="{{ $training->trainer_id }}"> -->
 					<span class="login100-form-title">
 						<img src="{{ asset($settings->logo_login_path) }}" alt="IMG" width="150px">
 					</span>
@@ -109,7 +109,7 @@
 
 					<div class="form-group row ">
                         <label class="control-label col-md-12" style="color: white;">Trainer Name </label>
-                        <div class="col-md-12"><b>{{ $trainer->name }}</b></div>
+                        <div class="col-md-12"><b>{{ $training->training_id }}</b></div>
 
                     </div>
 

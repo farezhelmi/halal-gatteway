@@ -16,13 +16,13 @@ use Illuminate\Support\Facades\Storage;
 
 class AttendanceController extends Controller
 {
-    public function form($trainingId, $trainer_id)
+    public function form($trainingId)
     {
         // $attendance = Attendance::with(['trainer', 'training.training'])->findOrFail($trainingId);
         $settings = Settings::where('id', '=', 1)->first();
         $training = Training::findOrFail($trainingId);
-        $trainer = Trainer::findOrFail($trainer_id);
-        return view('attendance.form', compact('settings','training','trainer'));
+        // $trainer = Trainer::findOrFail($trainer_id);
+        return view('attendance.form', compact('settings','training'));
     }
 
     public function store(Request $request)
@@ -89,15 +89,33 @@ class AttendanceController extends Controller
         $attendance = Attendance::findOrFail($attendanceId);
         $training = Training::findOrFail($trainingId);
 
+        Carbon::setLocale('ms');
+
         // Load the certificate template (make sure to store it in public/certificates)
         $imgPath = public_path('certificates/template.png');
+
+        $start = Carbon::parse($training->training_date);
+        $end = $training->end_date ? Carbon::parse($training->end_date) : null;
+
+        if ($end && $start->month === $end->month && $start->year === $end->year) {
+            // Same month and year: 5–6 Mei 2025
+            $dateRange = $start->format('j') . '-' . $end->translatedFormat('j F Y');
+        } elseif ($end) {
+            // Different month/year: 5 Mei – 6 Jun 2025
+            $dateRange = $start->translatedFormat('j F') . ' – ' . $end->translatedFormat('j F Y');
+        } else {
+            // Only start date: 5 Mei 2025
+            $dateRange = $start->translatedFormat('j F Y');
+        }
 
         // Data to insert into the certificate
         $data = [
             'name' => $attendance->name,
             'trainingTitle' => $training->title,
-            'date' => $training->training_date->format('j F, Y'),
-            'venue' => $training->venue
+            'date_range' => $dateRange,
+            'venue' => $training->venue,
+            'training_type' => $training->training->name,
+            'cert_no' => $attendance->cert_no
         ];
 
         // Generate the PDF
@@ -124,6 +142,8 @@ class AttendanceController extends Controller
         $training = Training::findOrFail($trainingId);
         $attendances = Attendance::where('training_id', $trainingId)->get();
 
+        Carbon::setLocale('ms');
+
         // Prepare a temporary directory for zip file storage
         $tempPath = public_path('certificates/temp');
         if (!file_exists($tempPath)) {
@@ -140,12 +160,28 @@ class AttendanceController extends Controller
             // Load the certificate template
             $imgPath = public_path('certificates/template.png');
 
+            $start = Carbon::parse($training->training_date);
+            $end = $training->end_date ? Carbon::parse($training->end_date) : null;
+
+            if ($end && $start->month === $end->month && $start->year === $end->year) {
+                // Same month and year: 5–6 Mei 2025
+                $dateRange = $start->format('j') . '-' . $end->translatedFormat('j F Y');
+            } elseif ($end) {
+                // Different month/year: 5 Mei – 6 Jun 2025
+                $dateRange = $start->translatedFormat('j F') . ' – ' . $end->translatedFormat('j F Y');
+            } else {
+                // Only start date: 5 Mei 2025
+                $dateRange = $start->translatedFormat('j F Y');
+            }
+
             // Prepare data for the PDF
             $data = [
                 'name' => $attendance->name,
                 'trainingTitle' => $training->title,
-                'date' => $training->training_date->format('j F, Y'),
-                'venue' => $training->venue
+                'date_range' => $dateRange,
+                'venue' => $training->venue,
+                'training_type' => $training->training->name,
+                'cert_no' => $attendance->cert_no
             ];
 
             // Generate the PDF
